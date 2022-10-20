@@ -6,3 +6,7 @@
 //
 
 import Foundation
+
+enum ShowsError: Error {
+    case badURL
+}

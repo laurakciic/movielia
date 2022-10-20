@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ShowsView: View {
+    @ObservedObject var viewModel = HomeViewModel(tvMazeAPIService: ShowsService())
     
     var body: some View {
         VStack {
@@ -21,7 +22,7 @@ struct ShowsView: View {
                 Spacer()
                 
                 Button {
-                    // show few movies
+                    // show all movies
                 } label: {
                     Text("show all")
                         .foregroundColor(Color.primaryYellow)
@@ -31,18 +32,17 @@ struct ShowsView: View {
                 }
             }
             
-            ZStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 5) {
-                        ForEach(0..<5) { index in
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.primaryDarkGray)
-                                .frame(width: 200, height: 300)
-                        }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 5) {
+                    ForEach(viewModel.movies.prefix(5), id: \.id) { movie in
+                        ShowCardView(movie: movie)
                     }
                 }
             }
             .padding(.horizontal)
+            .onAppear {
+                viewModel.fetchMovieData()
+            }
         }
     }
 }

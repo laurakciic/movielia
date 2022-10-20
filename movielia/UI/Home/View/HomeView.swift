@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct HomeView: View {
-    @ObservedObject var viewModel = HomeViewModel()
-        
+struct HomeView: View {        
     var body: some View {
         ScrollView {
             VStack {

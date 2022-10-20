@@ -13,8 +13,8 @@ enum ServiceFactory {
         DataService()
     }
     
-    static var tvMazeAPIService: TVMazeAPIServiceProtocol {
-        TVMazeAPIService()
+    static var showsService: ShowsServiceProtocol {
+        ShowsService()
     }
     
 }

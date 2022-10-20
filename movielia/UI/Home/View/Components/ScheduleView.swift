@@ -11,7 +11,7 @@ struct ScheduleView: View {
     
     var body: some View {
         VStack {
-            HStack(alignment: .bottom) {
+            HStack(alignment: .center) {
                 Text("Schedule")
                     .foregroundColor(Color.primaryLightGray)
                     .font(.body)
@@ -35,9 +35,15 @@ struct ScheduleView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 5) {
                         ForEach(0..<5) { index in
-                            RoundedRectangle(cornerRadius: 10)
-                                .fill(Color.primaryDarkGray)
-                                .frame(width: 180, height: 200)
+                            AsyncImage(url: URL(string: "https://static.tvmaze.com/uploads/images/medium_portrait/0/3.jpg")) { image in
+                                image
+                                    .resizable()
+                                    .scaledToFill()
+                            } placeholder: {
+                                Color.primaryDarkGray
+                            }
+                            .frame(width: 180, height: 200)
+                            .clipShape(RoundedRectangle(cornerRadius: 10))
                         }
                     }
                 }

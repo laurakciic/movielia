@@ -7,14 +7,16 @@
 
 import Foundation
 
-final class TVMazeAPIService: TVMazeAPIServiceProtocol {
+final class ShowsService: ShowsServiceProtocol {
     
     private let dataService: DataServiceProtocol = ServiceFactory.dataService
     
     init() { }
     
-    func fetchMovieData(completionHandler: @escaping (Result<TVMazeAPIResponse, Error>) -> Void) {
-        let url = URL(string: "https://api.tvmaze.com/shows/1")
+    func fetchShows(completionHandler: @escaping (Result<[ShowsResponse], Error>) -> Void) {
+        guard let url = URL(string: "https://api.tvmaze.com/shows") else {
+            return completionHandler(.failure(ShowsError.badURL))
+        }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }
 }
