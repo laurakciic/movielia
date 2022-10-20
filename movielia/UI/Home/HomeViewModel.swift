@@ -9,15 +9,19 @@ import UIKit
 
 final class HomeViewModel: ObservableObject {
     
-    private let tvMazeAPIService: ShowsServiceProtocol
-    @Published var movies = [ShowsResponse]()
+    private let showsService: ShowsServiceProtocol
+    private let scheduleService: ScheduleServiceProtocol
     
-    init(tvMazeAPIService: ShowsServiceProtocol) {
-        self.tvMazeAPIService = tvMazeAPIService
+    @Published var movies = [ShowsResponse]()
+    @Published var schedule = [ScheduleResponse]()
+    
+    init(showsService: ShowsServiceProtocol, scheduleService: ScheduleServiceProtocol) {
+        self.showsService = showsService
+        self.scheduleService = scheduleService
     }
     
     func fetchMovieData() {
-        tvMazeAPIService.fetchShows { result in
+        showsService.fetchShows { result in
             DispatchQueue.main.async {
                 switch(result) {
                 case .success(let response):
@@ -31,7 +35,21 @@ final class HomeViewModel: ObservableObject {
                     //self.state = .error(error)
                 }
             }
-
+        }
+    }
+    
+    func fetchScheduleData() {
+        scheduleService.fetchSchedule { result in
+            DispatchQueue.main.async {
+                switch(result) {
+                case .success(let response):
+                    let schedule = response
+                    self.schedule.append(contentsOf: schedule)
+                    
+                case .failure(let error):
+                    print("Error occured while fetching schedule: \(error.localizedDescription)")
+                }
+            }
         }
     }
 }

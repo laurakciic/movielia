@@ -17,4 +17,8 @@ enum ServiceFactory {
         ShowsService()
     }
     
+    static var scheduleService: ScheduleServiceProtocol {
+        ScheduleService()
+    }
+    
 }

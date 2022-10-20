@@ -24,7 +24,8 @@ struct ShowCardView: View {
                         .resizable()
                         .aspectRatio(contentMode: .fill)
                 } placeholder: {
-                    Color.primaryDarkGray
+                    ProgressView()
+                        .progressViewStyle(.circular)
                 }
                 
                 VStack(alignment: .leading) {

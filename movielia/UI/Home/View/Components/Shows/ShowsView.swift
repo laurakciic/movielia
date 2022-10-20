@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ShowsView: View {
-    @ObservedObject var viewModel = HomeViewModel(tvMazeAPIService: ShowsService())
+    @ObservedObject var viewModel = HomeViewModel(showsService: ShowsService(), scheduleService: ScheduleService())
     
     var body: some View {
         VStack {

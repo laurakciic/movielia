@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ScheduleView: View {
     
+    @ObservedObject var viewModel = HomeViewModel(showsService: ShowsService(), scheduleService: ScheduleService())
+    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -31,24 +33,17 @@ struct ScheduleView: View {
                 }
             }
             
-            ZStack {
-                ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 5) {
-                        ForEach(0..<5) { index in
-                            AsyncImage(url: URL(string: "https://static.tvmaze.com/uploads/images/medium_portrait/0/3.jpg")) { image in
-                                image
-                                    .resizable()
-                                    .scaledToFill()
-                            } placeholder: {
-                                Color.primaryDarkGray
-                            }
-                            .frame(width: 180, height: 200)
-                            .clipShape(RoundedRectangle(cornerRadius: 10))
-                        }
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 5) {
+                    ForEach(viewModel.schedule.prefix(5), id: \.id) { schedule in
+                        ScheduleCardView(schedule: schedule)
                     }
                 }
             }
             .padding(.horizontal)
+            .onAppear {
+                viewModel.fetchScheduleData()
+            }
         }
     }
 }
