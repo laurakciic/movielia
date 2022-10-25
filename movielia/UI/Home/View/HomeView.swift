@@ -15,6 +15,7 @@ struct HomeView: View {
                 ScheduleView()
             }
         }
+        .navigationBarHidden(true)
         .background(Color.primaryBlack)
     }
 }

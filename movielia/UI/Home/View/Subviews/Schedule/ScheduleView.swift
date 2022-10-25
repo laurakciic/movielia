@@ -35,7 +35,7 @@ struct ScheduleView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.schedule.prefix(5), id: \.id) { schedule in
+                    ForEach(viewModel.schedule.prefix(10), id: \.id) { schedule in
                         ScheduleCardView(schedule: schedule)
                     }
                 }

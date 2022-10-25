@@ -34,7 +34,7 @@ struct ShowsView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.movies.prefix(5), id: \.id) { movie in
+                    ForEach(viewModel.movies.prefix(10), id: \.id) { movie in
                         ShowCardView(movie: movie)
                     }
                 }
