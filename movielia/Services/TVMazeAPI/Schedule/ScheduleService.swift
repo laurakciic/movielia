@@ -14,8 +14,8 @@ final class ScheduleService: ScheduleServiceProtocol {
     init() { }
     
     func fetchSchedule(completionHandler: @escaping (Result<[ScheduleResponse], Error>) -> Void) {
-        // date is optional - defaults to the current day
-        guard let url = URL(string: "https://api.tvmaze.com/schedule?country=US&date=2014-12-01") else {
+        // date in URL is optional - defaults o the current day
+        guard let url = URL(string: "https://api.tvmaze.com/schedule?country=US") else {
             return completionHandler(.failure(ScheduleError.badURL))
         }
         

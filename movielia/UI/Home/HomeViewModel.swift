@@ -21,34 +21,27 @@ final class HomeViewModel: ObservableObject {
     }
     
     func fetchMovieData() {
-        showsService.fetchShows { result in
-            DispatchQueue.main.async {
-                switch(result) {
-                case .success(let response):
-//                    let homeData = HomeData(data: response)
-                    let movie = response
-                    self.movies.append(contentsOf: movie)
-                    //self.state = .showingData(homeData)
-
-                case .failure(let error):
-                    print("Error occured while fetching shows: \(error.localizedDescription)")
-                    //self.state = .error(error)
-                }
+        self.showsService.fetchShows { result in
+            switch(result) {
+            case .success(let response):
+                let movie = response
+                DispatchQueue.main.async {  self.movies.append(contentsOf: movie)   }
+                
+            case .failure(let error):
+                print("Error occured while fetching show data: \(error.localizedDescription)")
             }
         }
     }
     
     func fetchScheduleData() {
         scheduleService.fetchSchedule { result in
-            DispatchQueue.main.async {
-                switch(result) {
-                case .success(let response):
-                    let schedule = response
-                    self.schedule.append(contentsOf: schedule)
-                    
-                case .failure(let error):
-                    print("Error occured while fetching schedule: \(error.localizedDescription)")
-                }
+            switch(result) {
+            case .success(let response):
+                let schedule = response
+                DispatchQueue.main.async {  self.schedule.append(contentsOf: schedule)  }
+                
+            case .failure(let error):
+                print("Error occured while fetching schedule data: \(error.localizedDescription)")
             }
         }
     }

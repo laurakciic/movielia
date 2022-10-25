@@ -39,8 +39,6 @@
 		D3DFD4322901C9E300F81A9F /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4312901C9E300F81A9F /* ScheduleService.swift */; };
 		D3DFD4342901C9EB00F81A9F /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4332901C9EB00F81A9F /* ScheduleResponse.swift */; };
 		D3DFD4362901C9F600F81A9F /* ScheduleServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4352901C9F600F81A9F /* ScheduleServiceProtocol.swift */; };
-		D3DFD43B2902884000F81A9F /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD43A2902884000F81A9F /* MovieDetailsView.swift */; };
-		D3DFD43E2903162D00F81A9F /* CastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD43D2903162D00F81A9F /* CastCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,8 +76,6 @@
 		D3DFD4312901C9E300F81A9F /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
 		D3DFD4332901C9EB00F81A9F /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
 		D3DFD4352901C9F600F81A9F /* ScheduleServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleServiceProtocol.swift; sourceTree = "<group>"; };
-		D3DFD43A2902884000F81A9F /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
-		D3DFD43D2903162D00F81A9F /* CastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +146,6 @@
 				D31E5A7B28FA944C00207A96 /* Home */,
 				D31E5A8428FA97A900207A96 /* Search */,
 				D31E5A8528FA97B900207A96 /* Favorites */,
-				D3DFD4372902841500F81A9F /* Details */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -278,23 +273,6 @@
 			path = Schedule;
 			sourceTree = "<group>";
 		};
-		D3DFD4372902841500F81A9F /* Details */ = {
-			isa = PBXGroup;
-			children = (
-				D3DFD43A2902884000F81A9F /* MovieDetailsView.swift */,
-				D3DFD43C2903160500F81A9F /* Subviews */,
-			);
-			path = Details;
-			sourceTree = "<group>";
-		};
-		D3DFD43C2903160500F81A9F /* Subviews */ = {
-			isa = PBXGroup;
-			children = (
-				D3DFD43D2903162D00F81A9F /* CastCardView.swift */,
-			);
-			path = Subviews;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -382,7 +360,6 @@
 				D31E5AC028FFD72A00207A96 /* SearchCoordinator.swift in Sources */,
 				D31E5AA728FD888400207A96 /* ServiceFactory.swift in Sources */,
 				D31E5AC72900853F00207A96 /* SearchViewModel.swift in Sources */,
-				D3DFD43B2902884000F81A9F /* MovieDetailsView.swift in Sources */,
 				D3DFD4362901C9F600F81A9F /* ScheduleServiceProtocol.swift in Sources */,
 				D31E5AB528FEA8B200207A96 /* DataServiceProtocol.swift in Sources */,
 				D3DFD4302901C9D900F81A9F /* ScheduleError.swift in Sources */,
@@ -390,7 +367,6 @@
 				D31E5AB328FEA8A000207A96 /* DataService.swift in Sources */,
 				D3DFD42C2901C86200F81A9F /* ScheduleCardView.swift in Sources */,
 				D31E5ACF290122CC00207A96 /* ShowCardView.swift in Sources */,
-				D3DFD43E2903162D00F81A9F /* CastCardView.swift in Sources */,
 				D31E5AC92900854D00207A96 /* FavoritesViewModel.swift in Sources */,
 				D31E5A5628F8A8E000207A96 /* SceneDelegate.swift in Sources */,
 				D31E5AC528FFF91800207A96 /* HomeViewModel.swift in Sources */,
