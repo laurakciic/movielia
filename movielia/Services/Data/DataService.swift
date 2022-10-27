@@ -9,7 +9,7 @@ import Foundation
 
 final class DataService: DataServiceProtocol {
     
-    func fetchJSON<T>(from url: URL?, completionHandler: @escaping (Result<T, Error>) -> Void) where T : Decodable {
+    func fetchJSON<T>(from url: URL?, completionHandler: @escaping (Result<[T], Error>) -> Void) where T : Decodable {
         guard let url = url else {
             return completionHandler(.failure(DataServiceError.badURL))
         }
@@ -20,7 +20,7 @@ final class DataService: DataServiceProtocol {
                 return completionHandler(.failure(DataServiceError.notConnectedToInternet))
             }
             
-            guard let decodedData = try? JSONDecoder().decode(T.self, from: data) else {
+            guard let decodedData = try? JSONDecoder().decode([T].self, from: data) else {
                 return completionHandler(.failure(DataServiceError.badJSON))
             }
             

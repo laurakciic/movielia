@@ -20,7 +20,7 @@ final class MainCoordinator: Coordinator {
     
     func startTabbar() -> UINavigationController {
         childCoordinators = [
-            HomeCoordinator(navController: navigationController),
+            HomeCoordinator(navigationController: navigationController),
             SearchCoordinator(),
             FavoritesCoordinator()
         ]

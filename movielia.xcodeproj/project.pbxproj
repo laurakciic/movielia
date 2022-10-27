@@ -34,11 +34,21 @@
 		D31E5AC92900854D00207A96 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5AC82900854D00207A96 /* FavoritesViewModel.swift */; };
 		D31E5ACD2901129800207A96 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5ACC2901129800207A96 /* HomeData.swift */; };
 		D31E5ACF290122CC00207A96 /* ShowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5ACE290122CC00207A96 /* ShowCardView.swift */; };
+		D3BE295C29099658002B1D5E /* CastServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */; };
+		D3BE295E29099664002B1D5E /* CastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295D29099664002B1D5E /* CastResponse.swift */; };
+		D3BE296029099672002B1D5E /* CastError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295F29099672002B1D5E /* CastError.swift */; };
+		D3BE296229099689002B1D5E /* CastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE296129099689002B1D5E /* CastService.swift */; };
 		D3DFD42C2901C86200F81A9F /* ScheduleCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD42B2901C86200F81A9F /* ScheduleCardView.swift */; };
 		D3DFD4302901C9D900F81A9F /* ScheduleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD42F2901C9D900F81A9F /* ScheduleError.swift */; };
 		D3DFD4322901C9E300F81A9F /* ScheduleService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4312901C9E300F81A9F /* ScheduleService.swift */; };
 		D3DFD4342901C9EB00F81A9F /* ScheduleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4332901C9EB00F81A9F /* ScheduleResponse.swift */; };
 		D3DFD4362901C9F600F81A9F /* ScheduleServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFD4352901C9F600F81A9F /* ScheduleServiceProtocol.swift */; };
+		D3F952002909573D007B8831 /* CastCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F951FF2909573D007B8831 /* CastCardView.swift */; };
+		D3F9520329095787007B8831 /* MovieDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9520229095787007B8831 /* MovieDetailsView.swift */; };
+		D3F95205290958AC007B8831 /* DetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F95204290958AC007B8831 /* DetailsViewModel.swift */; };
+		D3F9520729095A01007B8831 /* DetailsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9520629095A01007B8831 /* DetailsCoordinator.swift */; };
+		D3F95209290962B7007B8831 /* DetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F95208290962B7007B8831 /* DetailsView.swift */; };
+		D3F9520B29096387007B8831 /* ScheduleDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F9520A29096387007B8831 /* ScheduleDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,11 +81,21 @@
 		D31E5AC82900854D00207A96 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		D31E5ACC2901129800207A96 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		D31E5ACE290122CC00207A96 /* ShowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardView.swift; sourceTree = "<group>"; };
+		D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastServiceProtocol.swift; sourceTree = "<group>"; };
+		D3BE295D29099664002B1D5E /* CastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponse.swift; sourceTree = "<group>"; };
+		D3BE295F29099672002B1D5E /* CastError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastError.swift; sourceTree = "<group>"; };
+		D3BE296129099689002B1D5E /* CastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastService.swift; sourceTree = "<group>"; };
 		D3DFD42B2901C86200F81A9F /* ScheduleCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleCardView.swift; sourceTree = "<group>"; };
 		D3DFD42F2901C9D900F81A9F /* ScheduleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleError.swift; sourceTree = "<group>"; };
 		D3DFD4312901C9E300F81A9F /* ScheduleService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleService.swift; sourceTree = "<group>"; };
 		D3DFD4332901C9EB00F81A9F /* ScheduleResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleResponse.swift; sourceTree = "<group>"; };
 		D3DFD4352901C9F600F81A9F /* ScheduleServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleServiceProtocol.swift; sourceTree = "<group>"; };
+		D3F951FF2909573D007B8831 /* CastCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCardView.swift; sourceTree = "<group>"; };
+		D3F9520229095787007B8831 /* MovieDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsView.swift; sourceTree = "<group>"; };
+		D3F95204290958AC007B8831 /* DetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewModel.swift; sourceTree = "<group>"; };
+		D3F9520629095A01007B8831 /* DetailsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCoordinator.swift; sourceTree = "<group>"; };
+		D3F95208290962B7007B8831 /* DetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsView.swift; sourceTree = "<group>"; };
+		D3F9520A29096387007B8831 /* ScheduleDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +166,7 @@
 				D31E5A7B28FA944C00207A96 /* Home */,
 				D31E5A8428FA97A900207A96 /* Search */,
 				D31E5A8528FA97B900207A96 /* Favorites */,
+				D3F951FD29095717007B8831 /* Details */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -192,6 +213,7 @@
 		D31E5AA528FD881600207A96 /* TVMazeAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D3BE295A29099639002B1D5E /* Cast */,
 				D3DFD4292901A17B00F81A9F /* Shows */,
 				D3DFD42A2901A19700F81A9F /* Schedule */,
 			);
@@ -233,6 +255,17 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		D3BE295A29099639002B1D5E /* Cast */ = {
+			isa = PBXGroup;
+			children = (
+				D3BE295F29099672002B1D5E /* CastError.swift */,
+				D3BE296129099689002B1D5E /* CastService.swift */,
+				D3BE295D29099664002B1D5E /* CastResponse.swift */,
+				D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */,
+			);
+			path = Cast;
+			sourceTree = "<group>";
+		};
 		D3DFD4292901A17B00F81A9F /* Shows */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,6 +304,35 @@
 				D3DFD42B2901C86200F81A9F /* ScheduleCardView.swift */,
 			);
 			path = Schedule;
+			sourceTree = "<group>";
+		};
+		D3F951FD29095717007B8831 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				D3F9520629095A01007B8831 /* DetailsCoordinator.swift */,
+				D3F95204290958AC007B8831 /* DetailsViewModel.swift */,
+				D3F951FE29095725007B8831 /* View */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
+		D3F951FE29095725007B8831 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D3F95208290962B7007B8831 /* DetailsView.swift */,
+				D3F9520129095774007B8831 /* Subviews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D3F9520129095774007B8831 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				D3F9520229095787007B8831 /* MovieDetailsView.swift */,
+				D3F9520A29096387007B8831 /* ScheduleDetailsView.swift */,
+				D3F951FF2909573D007B8831 /* CastCardView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -342,15 +404,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D3BE296229099689002B1D5E /* CastService.swift in Sources */,
+				D3BE295C29099658002B1D5E /* CastServiceProtocol.swift in Sources */,
 				D31E5A9828FBFB2F00207A96 /* SearchView.swift in Sources */,
+				D3F9520B29096387007B8831 /* ScheduleDetailsView.swift in Sources */,
 				D31E5ABC28FEB65600207A96 /* ShowsView.swift in Sources */,
 				D31E5AAA28FD88E600207A96 /* ShowsServiceProtocol.swift in Sources */,
+				D3F952002909573D007B8831 /* CastCardView.swift in Sources */,
+				D3F9520729095A01007B8831 /* DetailsCoordinator.swift in Sources */,
 				D31E5AB028FD893E00207A96 /* ShowsResponse.swift in Sources */,
 				D31E5ACD2901129800207A96 /* HomeData.swift in Sources */,
 				D3DFD4342901C9EB00F81A9F /* ScheduleResponse.swift in Sources */,
 				D31E5AA428FD5D3F00207A96 /* Colors.swift in Sources */,
+				D3F9520329095787007B8831 /* MovieDetailsView.swift in Sources */,
 				D31E5AB728FEA95100207A96 /* DataServiceError.swift in Sources */,
 				D31E5A7728F958F000207A96 /* Coordinator.swift in Sources */,
+				D3F95205290958AC007B8831 /* DetailsViewModel.swift in Sources */,
 				D31E5A9C28FD35B200207A96 /* HomeCoordinator.swift in Sources */,
 				D31E5ABE28FEB65E00207A96 /* ScheduleView.swift in Sources */,
 				D31E5A5428F8A8E000207A96 /* AppDelegate.swift in Sources */,
@@ -363,10 +432,13 @@
 				D3DFD4362901C9F600F81A9F /* ScheduleServiceProtocol.swift in Sources */,
 				D31E5AB528FEA8B200207A96 /* DataServiceProtocol.swift in Sources */,
 				D3DFD4302901C9D900F81A9F /* ScheduleError.swift in Sources */,
+				D3BE295E29099664002B1D5E /* CastResponse.swift in Sources */,
 				D31E5AAE28FD891B00207A96 /* ShowsError.swift in Sources */,
 				D31E5AB328FEA8A000207A96 /* DataService.swift in Sources */,
 				D3DFD42C2901C86200F81A9F /* ScheduleCardView.swift in Sources */,
+				D3BE296029099672002B1D5E /* CastError.swift in Sources */,
 				D31E5ACF290122CC00207A96 /* ShowCardView.swift in Sources */,
+				D3F95209290962B7007B8831 /* DetailsView.swift in Sources */,
 				D31E5AC92900854D00207A96 /* FavoritesViewModel.swift in Sources */,
 				D31E5A5628F8A8E000207A96 /* SceneDelegate.swift in Sources */,
 				D31E5AC528FFF91800207A96 /* HomeViewModel.swift in Sources */,

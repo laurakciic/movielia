@@ -21,4 +21,7 @@ enum ServiceFactory {
         ScheduleService()
     }
     
+    static var castService: CastServiceProtocol {
+        CastService()
+    }
 }

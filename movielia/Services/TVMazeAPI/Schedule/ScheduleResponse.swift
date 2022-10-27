@@ -11,13 +11,16 @@ struct ScheduleResponse: Identifiable, Codable {
     let id: Int
     let airtime: String
     
-    let show: Show?
+    let show: Show
     struct Show: Codable {
+        let id: Int
         let name: String
         let image: Image?
+        let summary: String?
     }
     
     struct Image: Codable {
         let medium: URL?
+        let original: URL?
     }
 }

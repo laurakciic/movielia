@@ -8,8 +8,9 @@
 import SwiftUI
 
 struct ShowsView: View {
-    @ObservedObject var viewModel = HomeViewModel(showsService: ShowsService(), scheduleService: ScheduleService())
-    
+    @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
+                                                       scheduleService: ServiceFactory.scheduleService,
+                                                       castService: ServiceFactory.castService)
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -34,8 +35,14 @@ struct ShowsView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.movies.prefix(10), id: \.id) { movie in
+                    ForEach(viewModel.movies.prefix(10)) { movie in
                         ShowCardView(movie: movie)
+                            .onTapGesture {
+                                viewModel.fetchCast(movie.id)
+                                viewModel.onGoToDetails?(movie, viewModel.cast)
+                                let _ = print("Movie id: \(movie.id)")
+//                                let _ = print("Movie cast: \(viewModel.cast)")
+                            }
                     }
                 }
             }

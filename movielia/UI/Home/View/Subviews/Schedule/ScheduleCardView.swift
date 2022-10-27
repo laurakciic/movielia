@@ -22,7 +22,7 @@ struct ScheduleCardView: View {
                 
                 VStack(alignment: .leading) {
                     ZStack {
-                        AsyncImage(url: schedule.show?.image?.medium) { image in
+                        AsyncImage(url: schedule.show.image?.medium) { image in
                             image
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
@@ -66,7 +66,7 @@ struct ScheduleCardView: View {
                                 .foregroundColor(Color.primaryLightGray)
                                 .font(.system(.caption))
                         }
-                        Text(schedule.show?.name ?? "Name Unavailable")
+                        Text(schedule.show.name)
                             .foregroundColor(Color.primaryLightGray)
                             .font(.system(.subheadline))
                             .fontWeight(.medium)

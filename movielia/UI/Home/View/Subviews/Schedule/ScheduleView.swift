@@ -9,7 +9,9 @@ import SwiftUI
 
 struct ScheduleView: View {
     
-    @ObservedObject var viewModel = HomeViewModel(showsService: ShowsService(), scheduleService: ScheduleService())
+    @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
+                                                       scheduleService: ServiceFactory.scheduleService,
+                                                       castService: ServiceFactory.castService)
     
     var body: some View {
         VStack {
@@ -35,8 +37,14 @@ struct ScheduleView: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.schedule.prefix(10), id: \.id) { schedule in
+                    ForEach(viewModel.schedule.prefix(10)) { schedule in
                         ScheduleCardView(schedule: schedule)
+                            .onTapGesture {
+                                viewModel.fetchCast(schedule.show.id)
+                                viewModel.onGoToDetails?(schedule, viewModel.cast)
+                                let _ = print("Schedule show id: \(schedule.show.id)")
+//                                let _ = print("Schedule cast: \(viewModel.cast)")
+                            }
                     }
                 }
             }

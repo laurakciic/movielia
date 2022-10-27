@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             mainCoordinator = MainCoordinator()
         }
         
-        window!.rootViewController = mainCoordinator?.start()               //UIHostingController(rootView: MainView())
+        window!.rootViewController = mainCoordinator?.start()               //UIHostingController(rootView: DetailsView())
         window!.makeKeyAndVisible()
     }
 
