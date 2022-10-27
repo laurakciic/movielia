@@ -26,13 +26,13 @@ struct CastCardView: View {
                 }
 //            }
             
-            Text(person.person?.character?.name ?? "Character name not available")
+            Text(person.person?.name ?? "")
                 .font(.caption)
                 .fontWeight(.bold)
                 .lineLimit(1)
                 .foregroundColor(Color.primaryLightGray)
             
-            Text(person.person?.name ?? "Real name not available")
+            Text(person.person?.character?.name ?? "")
                 .lineLimit(1)
                 .font(.caption2)
                 .foregroundColor(Color.primaryLightGray)

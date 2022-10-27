@@ -7,10 +7,13 @@
 
 import SwiftUI
 
-struct ShowsView: View {
+struct ShowsView<T>: View {
     @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
                                                        scheduleService: ServiceFactory.scheduleService,
                                                        castService: ServiceFactory.castService)
+    
+    var onGoToDetails: ((_ object: T, _ cast: [CastResponse]) -> Void)?
+    
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -39,9 +42,7 @@ struct ShowsView: View {
                         ShowCardView(movie: movie)
                             .onTapGesture {
                                 viewModel.fetchCast(movie.id)
-                                viewModel.onGoToDetails?(movie, viewModel.cast)
-                                let _ = print("Movie id: \(movie.id)")
-//                                let _ = print("Movie cast: \(viewModel.cast)")
+                                onGoToDetails?(movie as! T, viewModel.cast)
                             }
                     }
                 }
@@ -56,6 +57,6 @@ struct ShowsView: View {
 
 struct ShowsView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowsView()
+        ShowsView<Any>()
     }
 }

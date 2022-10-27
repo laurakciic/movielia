@@ -11,47 +11,21 @@ struct MovieDetailsView: View {
     
     var movie: ShowsResponse
     var cast: [CastResponse]
-        
+    
     var body: some View {
         GeometryReader { geo in
             ScrollView {
                 VStack {
-                    ZStack {
-                        AsyncImage(url: movie.image.original) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: geo.size.width, height: geo.size.height / 1.58)
-                                .ignoresSafeArea()
-                        } placeholder: {
-                            ProgressView()
-                                .progressViewStyle(.circular)
-                                .frame(width: geo.size.width, height: geo.size.height / 1.58)
-                        }
-                        
-                        VStack {
-                            HStack {
-                                Spacer()
-                                
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .strokeBorder(Color.primaryLightGray)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryBlack))
-                                        .frame(width: 40, height: 40)
-                                    
-                                    Button {
-                                        // add show to Favorites
-                                    } label: {
-                                        Image(systemName: "heart.fill")
-                                            .foregroundColor(Color.primaryLightGray)
-                                            .font(.title3)
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                            
-                            Spacer()
-                        }
+                    AsyncImage(url: movie.image.original) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geo.size.width, height: geo.size.height / 1.9)
+                            .ignoresSafeArea()
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .frame(width: geo.size.width, height: geo.size.height / 1.7)
                     }
                     
                     Text(movie.summary)
@@ -90,14 +64,5 @@ struct MovieDetailsView: View {
             }
         }
         .background(Color.primaryBlack)
-//        .onAppear {
-//            viewModel.fetchMovieData()
-//        }
     }
 }
-
-//struct MovieDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MovieDetailsView()
-//    }
-//}

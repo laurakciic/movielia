@@ -32,7 +32,6 @@
 		D31E5AC528FFF91800207A96 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5AC428FFF91800207A96 /* HomeViewModel.swift */; };
 		D31E5AC72900853F00207A96 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5AC62900853F00207A96 /* SearchViewModel.swift */; };
 		D31E5AC92900854D00207A96 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5AC82900854D00207A96 /* FavoritesViewModel.swift */; };
-		D31E5ACD2901129800207A96 /* HomeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5ACC2901129800207A96 /* HomeData.swift */; };
 		D31E5ACF290122CC00207A96 /* ShowCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D31E5ACE290122CC00207A96 /* ShowCardView.swift */; };
 		D3BE295C29099658002B1D5E /* CastServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */; };
 		D3BE295E29099664002B1D5E /* CastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295D29099664002B1D5E /* CastResponse.swift */; };
@@ -79,7 +78,6 @@
 		D31E5AC428FFF91800207A96 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		D31E5AC62900853F00207A96 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		D31E5AC82900854D00207A96 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
-		D31E5ACC2901129800207A96 /* HomeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeData.swift; sourceTree = "<group>"; };
 		D31E5ACE290122CC00207A96 /* ShowCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCardView.swift; sourceTree = "<group>"; };
 		D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastServiceProtocol.swift; sourceTree = "<group>"; };
 		D3BE295D29099664002B1D5E /* CastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponse.swift; sourceTree = "<group>"; };
@@ -132,20 +130,11 @@
 				D31E5A5528F8A8E000207A96 /* SceneDelegate.swift */,
 				D31E5A5C28F8A8E100207A96 /* Assets.xcassets */,
 				D31E5A6128F8A8E100207A96 /* Info.plist */,
-				D31E5A6728F8A90900207A96 /* DataModels */,
 				D31E5A6828F8A91400207A96 /* Services */,
 				D31E5A6928F8A91A00207A96 /* UI */,
 				D31E5A6A28F8A92D00207A96 /* Utils */,
 			);
 			path = movielia;
-			sourceTree = "<group>";
-		};
-		D31E5A6728F8A90900207A96 /* DataModels */ = {
-			isa = PBXGroup;
-			children = (
-				D31E5ACC2901129800207A96 /* HomeData.swift */,
-			);
-			path = DataModels;
 			sourceTree = "<group>";
 		};
 		D31E5A6828F8A91400207A96 /* Services */ = {
@@ -154,7 +143,6 @@
 				D31E5AA628FD888400207A96 /* ServiceFactory.swift */,
 				D31E5AB128FD899200207A96 /* Data */,
 				D31E5AA528FD881600207A96 /* TVMazeAPI */,
-				D31E5AA828FD888D00207A96 /* Persistance */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -175,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				D31E5A7628F958F000207A96 /* Coordinator.swift */,
-				D31E5AA328FD5D3F00207A96 /* Colors.swift */,
+				D331D22C290A8E8600DBF3F5 /* Extensions */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -220,13 +208,6 @@
 			path = TVMazeAPI;
 			sourceTree = "<group>";
 		};
-		D31E5AA828FD888D00207A96 /* Persistance */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Persistance;
-			sourceTree = "<group>";
-		};
 		D31E5AB128FD899200207A96 /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +234,14 @@
 				D3DFD42E2901C8DD00F81A9F /* Schedule */,
 			);
 			path = Subviews;
+			sourceTree = "<group>";
+		};
+		D331D22C290A8E8600DBF3F5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D31E5AA328FD5D3F00207A96 /* Colors.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D3BE295A29099639002B1D5E /* Cast */ = {
@@ -351,6 +340,8 @@
 			dependencies = (
 			);
 			name = movielia;
+			packageProductDependencies = (
+			);
 			productName = movielia;
 			productReference = D31E5A5028F8A8E000207A96 /* movielia.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +370,8 @@
 				Base,
 			);
 			mainGroup = D31E5A4728F8A8E000207A96;
+			packageReferences = (
+			);
 			productRefGroup = D31E5A5128F8A8E000207A96 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -413,7 +406,6 @@
 				D3F952002909573D007B8831 /* CastCardView.swift in Sources */,
 				D3F9520729095A01007B8831 /* DetailsCoordinator.swift in Sources */,
 				D31E5AB028FD893E00207A96 /* ShowsResponse.swift in Sources */,
-				D31E5ACD2901129800207A96 /* HomeData.swift in Sources */,
 				D3DFD4342901C9EB00F81A9F /* ScheduleResponse.swift in Sources */,
 				D31E5AA428FD5D3F00207A96 /* Colors.swift in Sources */,
 				D3F9520329095787007B8831 /* MovieDetailsView.swift in Sources */,
@@ -501,7 +493,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -555,7 +547,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

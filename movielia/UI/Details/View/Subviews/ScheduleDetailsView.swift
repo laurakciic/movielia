@@ -16,42 +16,16 @@ struct ScheduleDetailsView: View {
         GeometryReader { geo in
             ScrollView {
                 VStack {
-                    ZStack {
-                        AsyncImage(url: schedule.show.image?.original) { image in
-                            image
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: geo.size.width, height: geo.size.height / 1.58)
-                                .ignoresSafeArea()
-                        } placeholder: {
-                            ProgressView()
-                                .progressViewStyle(.circular)
-                                .frame(width: geo.size.width, height: geo.size.height / 1.58)
-                        }
-                        
-                        VStack {
-                            HStack {
-                                Spacer()
-                                
-                                ZStack {
-                                    RoundedRectangle(cornerRadius: 10)
-                                        .strokeBorder(Color.primaryLightGray)
-                                        .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryBlack))
-                                        .frame(width: 40, height: 40)
-                                    
-                                    Button {
-                                        // add show to Favorites
-                                    } label: {
-                                        Image(systemName: "heart.fill")
-                                            .foregroundColor(Color.primaryLightGray)
-                                            .font(.title3)
-                                    }
-                                }
-                                .padding(.horizontal)
-                            }
-                            
-                            Spacer()
-                        }
+                    AsyncImage(url: schedule.show.image?.original) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: geo.size.width, height: geo.size.height / 1.9)
+                            .ignoresSafeArea()
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .frame(width: geo.size.width, height: geo.size.height / 1.58)
                     }
                     
                     Text(schedule.show.summary ?? "Summary not available.")
@@ -92,9 +66,3 @@ struct ScheduleDetailsView: View {
         .background(Color.primaryBlack)
     }
 }
-
-//struct ScheduleDetailsView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScheduleDetailsView()
-//    }
-//}

@@ -53,10 +53,9 @@ final class HomeViewModel<T>: ObservableObject {
         castService.fetchCast(for: movie) { result in
             switch(result) {
             case .success(let response):
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     self.cast.append(contentsOf: response)
-//                    print(self.cast)
-                }
+//                }
                 
             case .failure(let error):
                 print("Error occured while fetching cast data: \(error.localizedDescription)")

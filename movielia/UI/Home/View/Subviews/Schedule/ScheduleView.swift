@@ -7,12 +7,14 @@
 
 import SwiftUI
 
-struct ScheduleView: View {
+struct ScheduleView<T>: View {
     
     @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
                                                        scheduleService: ServiceFactory.scheduleService,
                                                        castService: ServiceFactory.castService)
     
+    var onGoToDetails: ((_ object: T, _ cast: [CastResponse]) -> Void)?
+
     var body: some View {
         VStack {
             HStack(alignment: .center) {
@@ -41,9 +43,7 @@ struct ScheduleView: View {
                         ScheduleCardView(schedule: schedule)
                             .onTapGesture {
                                 viewModel.fetchCast(schedule.show.id)
-                                viewModel.onGoToDetails?(schedule, viewModel.cast)
-                                let _ = print("Schedule show id: \(schedule.show.id)")
-//                                let _ = print("Schedule cast: \(viewModel.cast)")
+                                onGoToDetails?(schedule as! T, viewModel.cast)
                             }
                     }
                 }
@@ -58,6 +58,6 @@ struct ScheduleView: View {
 
 struct ScheduleView_Previews: PreviewProvider {
     static var previews: some View {
-        ScheduleView()
+        ScheduleView<Any>()
     }
 }

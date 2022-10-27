@@ -14,7 +14,7 @@ final class DataService: DataServiceProtocol {
             return completionHandler(.failure(DataServiceError.badURL))
         }
         
-        DispatchQueue.global(qos: .background).async {
+//        DispatchQueue.global(qos: .background).async {
             
             guard let data = try? Data(contentsOf: url) else {
                 return completionHandler(.failure(DataServiceError.notConnectedToInternet))
@@ -25,6 +25,6 @@ final class DataService: DataServiceProtocol {
             }
             
             completionHandler(.success(decodedData))
-        }
+//        }
     }
 }
