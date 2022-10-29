@@ -24,4 +24,8 @@ enum ServiceFactory {
     static var castService: CastServiceProtocol {
         CastService()
     }
+    
+    static var searchService: SearchServiceProtocol {
+        SearchService()
+    }
 }
