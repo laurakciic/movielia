@@ -41,14 +41,14 @@ struct ShowsView<T>: View {
                     ForEach(viewModel.movies.prefix(10)) { movie in
                         ShowCardView(movie: movie)
                             .onTapGesture {
-                                viewModel.fetchCast(movie.id)
+                                viewModel.fetchCastData(movie.id)
                                 onGoToDetails?(movie as! T, viewModel.cast)
                             }
                     }
                 }
             }
             .padding(.horizontal)
-            .onAppear {
+            .task {
                 viewModel.fetchMovieData()
             }
         }

@@ -14,17 +14,14 @@ final class DataService: DataServiceProtocol {
             return completionHandler(.failure(DataServiceError.badURL))
         }
         
-//        DispatchQueue.global(qos: .background).async {
-            
-            guard let data = try? Data(contentsOf: url) else {
-                return completionHandler(.failure(DataServiceError.notConnectedToInternet))
-            }
-            
-            guard let decodedData = try? JSONDecoder().decode([T].self, from: data) else {
-                return completionHandler(.failure(DataServiceError.badJSON))
-            }
-            
-            completionHandler(.success(decodedData))
-//        }
+        guard let data = try? Data(contentsOf: url) else {
+            return completionHandler(.failure(DataServiceError.notConnectedToInternet))
+        }
+        
+        guard let decodedData = try? JSONDecoder().decode([T].self, from: data) else {
+            return completionHandler(.failure(DataServiceError.badJSON))
+        }
+        
+        completionHandler(.success(decodedData))
     }
 }

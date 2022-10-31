@@ -42,14 +42,14 @@ struct ScheduleView<T>: View {
                     ForEach(viewModel.schedule.prefix(10)) { schedule in
                         ScheduleCardView(schedule: schedule)
                             .onTapGesture {
-                                viewModel.fetchCast(schedule.show.id)
+                                viewModel.fetchCastData(schedule.show.id)
                                 onGoToDetails?(schedule as! T, viewModel.cast)
                             }
                     }
                 }
             }
             .padding(.horizontal)
-            .onAppear {
+            .task {
                 viewModel.fetchScheduleData()
             }
         }

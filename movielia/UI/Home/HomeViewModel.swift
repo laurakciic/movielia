@@ -26,40 +26,57 @@ final class HomeViewModel<T>: ObservableObject {
     }
     
     func fetchMovieData() {
-        self.showsService.fetchShows { result in
-            switch(result) {
-            case .success(let response):
-                DispatchQueue.main.async {  self.movies.append(contentsOf: response)   }
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            
+            self.showsService.fetchShows { result in
                 
-            case .failure(let error):
-                print("Error occured while fetching show data: \(error.localizedDescription)")
+                DispatchQueue.main.async {
+                    switch(result) {
+                    case .success(let response):
+                        self.movies.append(contentsOf: response)
+                        
+                    case .failure(let error):
+                        print("Error occured while fetching show data: \(error.localizedDescription)")
+                    }
+                }
             }
         }
     }
     
     func fetchScheduleData() {
-        scheduleService.fetchSchedule() { result in
-            switch(result) {
-            case .success(let response):
-                DispatchQueue.main.async {  self.schedule.append(contentsOf: response)  }
-                
-            case .failure(let error):
-                print("Error occured while fetching schedule data: \(error.localizedDescription)")
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            guard let self = self else { return }
+            
+            self.scheduleService.fetchSchedule() { result in
+                DispatchQueue.main.async {
+                    switch(result) {
+                    case .success(let response):
+                        self.schedule.append(contentsOf: response)
+                        
+                    case .failure(let error):
+                        print("Error occured while fetching schedule data: \(error.localizedDescription)")
+                    }
+                }
             }
         }
     }
     
-    func fetchCast(_ movie: Int) {
-        castService.fetchCast(for: movie) { result in
-            switch(result) {
-            case .success(let response):
+    func fetchCastData(_ movie: Int) {
+//        DispatchQueue.global(qos: .background).async { [weak self] in
+//            guard let self = self else { return }
+
+        self.castService.fetchCast(for: movie) { result in
 //                DispatchQueue.main.async {
-                    self.cast.append(contentsOf: response)
+                    switch(result) {
+                    case .success(let response):
+                        self.cast.append(contentsOf: response)
+                        
+                    case .failure(let error):
+                        print("Error occured while fetching cast data: \(error.localizedDescription)")
+                    }
 //                }
-                
-            case .failure(let error):
-                print("Error occured while fetching cast data: \(error.localizedDescription)")
-            }
+//            }
         }
     }
 }

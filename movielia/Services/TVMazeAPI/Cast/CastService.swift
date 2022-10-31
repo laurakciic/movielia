@@ -13,7 +13,7 @@ final class CastService: CastServiceProtocol {
     
     func fetchCast(for movie: Int, completionHandler: @escaping (Result<[CastResponse], Error>) -> Void) {
         guard let url = URL(string: "https://api.tvmaze.com/shows/\(movie)/cast") else {
-            return completionHandler(.failure(CastError.badURL))
+            return completionHandler(.failure(DataServiceError.badURL))
         }
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }
