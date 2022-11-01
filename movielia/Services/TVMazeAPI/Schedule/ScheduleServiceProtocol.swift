@@ -10,5 +10,4 @@ import Foundation
 protocol ScheduleServiceProtocol: AnyObject {
     
     func fetchSchedule(completionHandler: @escaping (Result<[ScheduleResponse], Error>) -> Void)
-    
 }

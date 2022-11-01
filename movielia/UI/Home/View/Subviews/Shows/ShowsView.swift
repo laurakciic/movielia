@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ShowsView<T>: View {
+    
     @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
                                                        scheduleService: ServiceFactory.scheduleService,
-                                                       castService: ServiceFactory.castService)
+                                                       castService: ServiceFactory.castService,
+                                                       persistanceService: ServiceFactory.persistanceService)
     
     var onGoToDetails: ((_ object: T, _ cast: [CastResponse]) -> Void)?
     
@@ -26,7 +28,7 @@ struct ShowsView<T>: View {
                 Spacer()
                 
                 Button {
-                    // show all movies
+                    // show all shows
                 } label: {
                     Text("show all")
                         .foregroundColor(Color.primaryYellow)
@@ -38,11 +40,11 @@ struct ShowsView<T>: View {
             
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 5) {
-                    ForEach(viewModel.movies.prefix(10)) { movie in
-                        ShowCardView(movie: movie)
+                    ForEach(viewModel.shows.prefix(10)) { show in
+                        ShowCardView(show: show)
                             .onTapGesture {
-                                viewModel.fetchCastData(movie.id)
-                                onGoToDetails?(movie as! T, viewModel.cast)
+                                viewModel.fetchCastData(show.id)
+                                onGoToDetails?(show as! T, viewModel.cast)
                             }
                     }
                 }

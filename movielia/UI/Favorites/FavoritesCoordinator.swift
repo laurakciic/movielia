@@ -20,12 +20,11 @@ final class FavoritesCoordinator: Coordinator {
     }
     
     private func createFavoritesViewController() -> UIViewController {
-        let viewController = UIHostingController(rootView: FavoritesView())
+        let viewModel = FavoritesViewModel(persistanceService: ServiceFactory.persistanceService)
+        let viewController = UIHostingController(rootView: FavoritesView(viewModel: viewModel))
         
         viewController.tabBarItem = UITabBarItem(title: "Favorites", image: UIImage(systemName: "heart"), selectedImage: UIImage(systemName: "heart.fill"))
-        
         navigationController.pushViewController(viewController, animated: true)
-        
         return viewController
     }
 }

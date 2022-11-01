@@ -36,6 +36,11 @@
 		D331D24B290C8D5000DBF3F5 /* SearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D24A290C8D5000DBF3F5 /* SearchService.swift */; };
 		D331D24D290C8D6100DBF3F5 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D24C290C8D6100DBF3F5 /* SearchResponse.swift */; };
 		D331D24F290C8D6C00DBF3F5 /* SearchServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D24E290C8D6C00DBF3F5 /* SearchServiceProtocol.swift */; };
+		D331D2642910795200DBF3F5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D2632910795200DBF3F5 /* UserDefaults.swift */; };
+		D331D267291079E300DBF3F5 /* PersistanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D266291079E300DBF3F5 /* PersistanceService.swift */; };
+		D331D269291079EC00DBF3F5 /* PersistanceServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D268291079EC00DBF3F5 /* PersistanceServiceProtocol.swift */; };
+		D331D26E2911083200DBF3F5 /* FavoriteData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D26D2911083200DBF3F5 /* FavoriteData.swift */; };
+		D331D274291141D200DBF3F5 /* FavoriteCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D331D273291141D200DBF3F5 /* FavoriteCardView.swift */; };
 		D3BE295C29099658002B1D5E /* CastServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */; };
 		D3BE295E29099664002B1D5E /* CastResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE295D29099664002B1D5E /* CastResponse.swift */; };
 		D3BE296229099689002B1D5E /* CastService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3BE296129099689002B1D5E /* CastService.swift */; };
@@ -83,6 +88,11 @@
 		D331D24A290C8D5000DBF3F5 /* SearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchService.swift; sourceTree = "<group>"; };
 		D331D24C290C8D6100DBF3F5 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		D331D24E290C8D6C00DBF3F5 /* SearchServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchServiceProtocol.swift; sourceTree = "<group>"; };
+		D331D2632910795200DBF3F5 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		D331D266291079E300DBF3F5 /* PersistanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceService.swift; sourceTree = "<group>"; };
+		D331D268291079EC00DBF3F5 /* PersistanceServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistanceServiceProtocol.swift; sourceTree = "<group>"; };
+		D331D26D2911083200DBF3F5 /* FavoriteData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteData.swift; sourceTree = "<group>"; };
+		D331D273291141D200DBF3F5 /* FavoriteCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCardView.swift; sourceTree = "<group>"; };
 		D3BE295B29099658002B1D5E /* CastServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastServiceProtocol.swift; sourceTree = "<group>"; };
 		D3BE295D29099664002B1D5E /* CastResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastResponse.swift; sourceTree = "<group>"; };
 		D3BE296129099689002B1D5E /* CastService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastService.swift; sourceTree = "<group>"; };
@@ -145,6 +155,7 @@
 				D31E5AA628FD888400207A96 /* ServiceFactory.swift */,
 				D31E5AB128FD899200207A96 /* Data */,
 				D31E5AA528FD881600207A96 /* TVMazeAPI */,
+				D331D265291079B700DBF3F5 /* Persistance */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -173,9 +184,9 @@
 		D31E5A7B28FA944C00207A96 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				D31E5A9B28FD35B200207A96 /* HomeCoordinator.swift */,
-				D31E5AC428FFF91800207A96 /* HomeViewModel.swift */,
 				D31E5ABA28FEB62C00207A96 /* View */,
+				D31E5AC428FFF91800207A96 /* HomeViewModel.swift */,
+				D31E5A9B28FD35B200207A96 /* HomeCoordinator.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -184,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				D331D243290C8CD600DBF3F5 /* View */,
-				D31E5ABF28FFD72A00207A96 /* SearchCoordinator.swift */,
 				D31E5AC62900853F00207A96 /* SearchViewModel.swift */,
+				D31E5ABF28FFD72A00207A96 /* SearchCoordinator.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -193,9 +204,9 @@
 		D31E5A8528FA97B900207A96 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				D31E5AC128FFD74800207A96 /* FavoritesCoordinator.swift */,
-				D31E5A9528FBFB2500207A96 /* FavoritesView.swift */,
+				D331D26F291131BF00DBF3F5 /* View */,
 				D31E5AC82900854D00207A96 /* FavoritesViewModel.swift */,
+				D31E5AC128FFD74800207A96 /* FavoritesCoordinator.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -243,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				D31E5AA328FD5D3F00207A96 /* Colors.swift */,
+				D331D2632910795200DBF3F5 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -272,6 +284,41 @@
 				D331D24E290C8D6C00DBF3F5 /* SearchServiceProtocol.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		D331D265291079B700DBF3F5 /* Persistance */ = {
+			isa = PBXGroup;
+			children = (
+				D331D26A2911069000DBF3F5 /* DataModels */,
+				D331D266291079E300DBF3F5 /* PersistanceService.swift */,
+				D331D268291079EC00DBF3F5 /* PersistanceServiceProtocol.swift */,
+			);
+			path = Persistance;
+			sourceTree = "<group>";
+		};
+		D331D26A2911069000DBF3F5 /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				D331D26D2911083200DBF3F5 /* FavoriteData.swift */,
+			);
+			path = DataModels;
+			sourceTree = "<group>";
+		};
+		D331D26F291131BF00DBF3F5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D31E5A9528FBFB2500207A96 /* FavoritesView.swift */,
+				D331D2722911419900DBF3F5 /* Subviews */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		D331D2722911419900DBF3F5 /* Subviews */ = {
+			isa = PBXGroup;
+			children = (
+				D331D273291141D200DBF3F5 /* FavoriteCardView.swift */,
+			);
+			path = Subviews;
 			sourceTree = "<group>";
 		};
 		D3BE295A29099639002B1D5E /* Cast */ = {
@@ -435,6 +482,7 @@
 				D3F9520729095A01007B8831 /* DetailsCoordinator.swift in Sources */,
 				D31E5AB028FD893E00207A96 /* ShowsResponse.swift in Sources */,
 				D3DFD4342901C9EB00F81A9F /* ScheduleResponse.swift in Sources */,
+				D331D267291079E300DBF3F5 /* PersistanceService.swift in Sources */,
 				D31E5AA428FD5D3F00207A96 /* Colors.swift in Sources */,
 				D3F9520329095787007B8831 /* MovieDetailsView.swift in Sources */,
 				D31E5AB728FEA95100207A96 /* DataServiceError.swift in Sources */,
@@ -450,12 +498,15 @@
 				D31E5AC028FFD72A00207A96 /* SearchCoordinator.swift in Sources */,
 				D31E5AA728FD888400207A96 /* ServiceFactory.swift in Sources */,
 				D31E5AC72900853F00207A96 /* SearchViewModel.swift in Sources */,
+				D331D2642910795200DBF3F5 /* UserDefaults.swift in Sources */,
+				D331D274291141D200DBF3F5 /* FavoriteCardView.swift in Sources */,
 				D3DFD4362901C9F600F81A9F /* ScheduleServiceProtocol.swift in Sources */,
 				D331D24F290C8D6C00DBF3F5 /* SearchServiceProtocol.swift in Sources */,
 				D331D24D290C8D6100DBF3F5 /* SearchResponse.swift in Sources */,
 				D31E5AB528FEA8B200207A96 /* DataServiceProtocol.swift in Sources */,
 				D3BE295E29099664002B1D5E /* CastResponse.swift in Sources */,
 				D31E5AB328FEA8A000207A96 /* DataService.swift in Sources */,
+				D331D26E2911083200DBF3F5 /* FavoriteData.swift in Sources */,
 				D3DFD42C2901C86200F81A9F /* ScheduleCardView.swift in Sources */,
 				D31E5ACF290122CC00207A96 /* ShowCardView.swift in Sources */,
 				D3F95209290962B7007B8831 /* DetailsView.swift in Sources */,
@@ -464,6 +515,7 @@
 				D31E5AC528FFF91800207A96 /* HomeViewModel.swift in Sources */,
 				D31E5A9A28FD354200207A96 /* MainCoordinator.swift in Sources */,
 				D31E5AC228FFD74800207A96 /* FavoritesCoordinator.swift in Sources */,
+				D331D269291079EC00DBF3F5 /* PersistanceServiceProtocol.swift in Sources */,
 				D31E5A9628FBFB2500207A96 /* FavoritesView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

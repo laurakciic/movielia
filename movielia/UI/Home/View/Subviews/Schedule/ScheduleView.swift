@@ -11,7 +11,8 @@ struct ScheduleView<T>: View {
     
     @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
                                                        scheduleService: ServiceFactory.scheduleService,
-                                                       castService: ServiceFactory.castService)
+                                                       castService: ServiceFactory.castService,
+                                                       persistanceService: ServiceFactory.persistanceService)
     
     var onGoToDetails: ((_ object: T, _ cast: [CastResponse]) -> Void)?
 
@@ -27,7 +28,7 @@ struct ScheduleView<T>: View {
                 Spacer()
                 
                 Button {
-                    // show scheduled movies for today
+                    // show scheduled shows for today
                 } label: {
                     Text("show all")
                         .foregroundColor(Color.primaryYellow)

@@ -10,5 +10,4 @@ import Foundation
 protocol DataServiceProtocol: AnyObject {
     
     func fetchJSON<T>(from url: URL?, completionHandler: @escaping (Result<[T], Error>) -> Void) where T: Decodable
-    
 }

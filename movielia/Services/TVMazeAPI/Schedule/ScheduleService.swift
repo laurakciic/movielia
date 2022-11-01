@@ -18,7 +18,6 @@ final class ScheduleService: ScheduleServiceProtocol {
         guard let url = URL(string: "https://api.tvmaze.com/schedule?country=US") else {
             return completionHandler(.failure(DataServiceError.badURL))
         }
-        
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }
 }

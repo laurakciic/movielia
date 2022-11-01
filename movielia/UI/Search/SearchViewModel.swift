@@ -47,6 +47,7 @@ final class SearchViewModel: ObservableObject {
             guard let self = self else { return }
             
             self.searchService.fetchSearchResult(for: show) { result in
+                
                 DispatchQueue.main.async {
                     switch(result) {
                     case .success(let response):

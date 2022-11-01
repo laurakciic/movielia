@@ -17,7 +17,6 @@ final class SearchService: SearchServiceProtocol {
         guard let url = URL(string: "https://api.tvmaze.com/search/shows?q=\(searchQuery)") else {
             return completionHandler(.failure(DataServiceError.badURL))
         }
-        
         dataService.fetchJSON(from: url, completionHandler: completionHandler)
     }
 }

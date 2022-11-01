@@ -11,9 +11,9 @@ struct CastResponse: Codable {
     let person: Person?
     
     struct Person: Codable {
-        let id: Int
-        let name: String
-        let image: Image?
+        let id:        Int
+        let name:      String
+        let image:     Image?
         let character: Character?
     }
     

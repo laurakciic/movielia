@@ -11,12 +11,12 @@ struct SearchResponse: Codable {
     let show: Shows
     
     struct Shows: Codable {
-        let id: Int
-        let name: String
-        let genres: [String]
+        let id:        Int
+        let name:      String
+        let genres:    [String]
         let premiered: String
-        let ended: String?
-        let image: Image?
+        let ended:     String?
+        let image:     Image?
         
         var yearPremiered: String {
             let index = premiered.index(premiered.startIndex, offsetBy: 4)

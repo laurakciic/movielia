@@ -28,4 +28,8 @@ enum ServiceFactory {
     static var searchService: SearchServiceProtocol {
         SearchService()
     }
+    
+    static var persistanceService: PersistanceServiceProtocol {
+        PersistanceService()
+    }
 }

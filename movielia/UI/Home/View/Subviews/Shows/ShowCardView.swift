@@ -8,8 +8,14 @@
 import SwiftUI
 
 struct ShowCardView: View {
-    var movie: ShowsResponse
     
+    @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
+                                                       scheduleService: ServiceFactory.scheduleService,
+                                                       castService: ServiceFactory.castService,
+                                                       persistanceService: ServiceFactory.persistanceService)
+    
+    var show: ShowsResponse
+
     var body: some View {
         ZStack {
             GeometryReader { geo in
@@ -20,7 +26,7 @@ struct ShowCardView: View {
             
             VStack(alignment: .leading) {
                 ZStack {
-                    AsyncImage(url: movie.image.medium) { image in
+                    AsyncImage(url: show.image.medium) { image in
                         image
                             .resizable()
                             .aspectRatio(contentMode: .fill)
@@ -42,10 +48,11 @@ struct ShowCardView: View {
                                     .frame(width: 35, height: 35)
                                 
                                 Button {
-                                    // add show to Favorites
+                                    viewModel.markFavorite(show)
+                                    viewModel.persistChecked(viewModel.isShowSaved)
                                 } label: {
                                     Image(systemName: "heart.fill")
-                                        .foregroundColor(Color.primaryLightGray)
+                                        .foregroundColor(viewModel.containsFavorite(show) ? Color.primaryYellow : Color.primaryLightGray)
                                         .font(.title3)
                                 }
                             }
@@ -61,13 +68,13 @@ struct ShowCardView: View {
                             .foregroundColor(Color.primaryYellow)
                             .font(.system(.caption2))
                         
-                        Text(String(movie.rating.average ?? 0.0))
+                        Text(String(show.rating.average ?? 0.0))
                             .foregroundColor(Color.primaryLightGray)
                             .font(.system(.callout))
                             .fontWeight(.light)
                     }
                     
-                    Text(movie.name)
+                    Text(show.name)
                         .foregroundColor(Color.primaryLightGray)
                         .font(.system(.headline))
                         .fontWeight(.medium)

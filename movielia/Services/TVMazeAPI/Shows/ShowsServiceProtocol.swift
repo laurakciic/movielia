@@ -10,5 +10,4 @@ import Foundation
 protocol ShowsServiceProtocol: AnyObject {
     
     func fetchShows(completionHandler: @escaping (Result<[ShowsResponse], Error>) -> Void)
-    
 }

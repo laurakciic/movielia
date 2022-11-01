@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ScheduleCardView: View {
+        
+    @ObservedObject var viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
+                                                       scheduleService: ServiceFactory.scheduleService,
+                                                       castService: ServiceFactory.castService,
+                                                       persistanceService: ServiceFactory.persistanceService)
     
     var schedule: ScheduleResponse
-    
+
     var body: some View {
         VStack {
             ZStack {
@@ -45,10 +50,11 @@ struct ScheduleCardView: View {
                                         .frame(width: 30, height: 30)
                                     
                                     Button {
-                                        // add show to Favorites
+                                        viewModel.markFavorite(schedule)
+                                        viewModel.persistChecked(viewModel.isShowSaved)
                                     } label: {
                                         Image(systemName: "heart.fill")
-                                            .foregroundColor(Color.primaryLightGray)
+                                            .foregroundColor(viewModel.containsFavorite(schedule) ? Color.primaryYellow : Color.primaryLightGray)
                                             .font(.subheadline)
                                     }
                                 }

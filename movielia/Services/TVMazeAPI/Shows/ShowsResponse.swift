@@ -14,7 +14,7 @@ struct ShowsResponse: Identifiable, Codable {
     
     let image: Image
     struct Image: Codable {
-        let medium: URL?
+        let medium:   URL?
         let original: URL?
     }
     

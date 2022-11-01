@@ -22,7 +22,11 @@ final class HomeCoordinator: Coordinator {
     }
     
     private func createHomeViewController() -> UIViewController {
-        let viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService, scheduleService: ServiceFactory.scheduleService, castService: ServiceFactory.castService)
+        let viewModel = HomeViewModel<Any>(showsService: ServiceFactory.showsService,
+                                           scheduleService: ServiceFactory.scheduleService,
+                                           castService: ServiceFactory.castService,
+                                           persistanceService: ServiceFactory.persistanceService)
+        
         let viewController = UIHostingController(rootView: HomeView(viewModel: viewModel))
         viewController.tabBarItem = UITabBarItem(title: "Home", image: UIImage(systemName: "house"), selectedImage: UIImage(systemName: "house.fill"))
         

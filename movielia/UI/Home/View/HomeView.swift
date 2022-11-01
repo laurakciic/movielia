@@ -32,6 +32,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView(viewModel: HomeViewModel(showsService: ServiceFactory.showsService, scheduleService: ServiceFactory.scheduleService, castService: ServiceFactory.castService))
+        HomeView(viewModel: HomeViewModel(showsService: ServiceFactory.showsService, scheduleService: ServiceFactory.scheduleService, castService: ServiceFactory.castService, persistanceService: ServiceFactory.persistanceService))
     }
 }
