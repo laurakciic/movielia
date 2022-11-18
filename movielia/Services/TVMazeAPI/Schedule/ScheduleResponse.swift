@@ -17,6 +17,10 @@ struct ScheduleResponse: Identifiable, Codable {
         let name:    String
         let image:   Image?
         let summary: String?
+        
+        var summaryWithoutHTMLTags: String {
+            return summary?.removeHTMLTags() ?? "Summary not available."
+        }
     }
     
     struct Image: Codable {

@@ -83,6 +83,12 @@ final class HomeViewModel<T>: ObservableObject {
         }
     }
     
+    func emptyCastArray() {
+        for _ in cast.enumerated().reversed() {
+            cast.removeAll()
+        }
+    }
+    
     func containsFavorite(_ show: ShowsResponse) -> Bool {
         let favorites = persistanceService.favoriteData.favorites
         

@@ -9,7 +9,7 @@ import SwiftUI
 
 final class DetailsViewModel<T>: ObservableObject {
     
-    let data: T
+    var data: T
     let cast: [CastResponse]
     
     var onDismissed: (() -> Void)?

@@ -52,6 +52,7 @@ struct ShowsView<T>: View {
             .padding(.horizontal)
             .task {
                 viewModel.fetchMovieData()
+                viewModel.emptyCastArray()
             }
         }
     }

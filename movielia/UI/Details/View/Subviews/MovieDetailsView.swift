@@ -13,23 +13,22 @@ struct MovieDetailsView: View {
     var cast: [CastResponse]
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView {
+        ScrollView(showsIndicators: false) {
                 VStack {
                     AsyncImage(url: movie.image.original) { image in
                         image
                             .resizable()
                             .scaledToFill()
-                            .frame(width: geo.size.width, height: geo.size.height / 1.9)
-                            .ignoresSafeArea()
+                            .frame(maxWidth: .infinity)
                     } placeholder: {
                         ProgressView()
                             .progressViewStyle(.circular)
-                            .frame(width: geo.size.width, height: geo.size.height / 1.7)
+                            .frame(maxWidth: .infinity)
                     }
-                    
-                    Text(movie.summary)
+                                        
+                    Text(movie.summaryWithoutHTMLTags)
                         .foregroundColor(Color.primaryLightGray)
+                        .lineLimit(5)
                         .padding(.horizontal, 4)
                         .multilineTextAlignment(.leading)
                     
@@ -59,10 +58,11 @@ struct MovieDetailsView: View {
                                 CastCardView(person: person)
                             }
                         }
+                        .padding(.vertical, 10)
                     }
                 }
             }
-        }
-        .background(Color.primaryBlack)
+            .background(Color.primaryBlack)
+            .ignoresSafeArea()
     }
 }

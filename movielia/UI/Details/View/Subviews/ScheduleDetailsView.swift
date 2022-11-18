@@ -9,60 +9,60 @@ import SwiftUI
 
 struct ScheduleDetailsView: View {
     
-    var schedule: ScheduleResponse      
+    var schedule: ScheduleResponse
     var cast: [CastResponse]
     
     var body: some View {
-        GeometryReader { geo in
-            ScrollView {
-                VStack {
-                    AsyncImage(url: schedule.show.image?.original) { image in
-                        image
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: geo.size.width, height: geo.size.height / 1.9)
-                            .ignoresSafeArea()
-                    } placeholder: {
-                        ProgressView()
-                            .progressViewStyle(.circular)
-                            .frame(width: geo.size.width, height: geo.size.height / 1.58)
-                    }
-                    
-                    Text(schedule.show.summary ?? "Summary not available.")
+        ScrollView(showsIndicators: false) {
+            VStack {
+                AsyncImage(url: schedule.show.image?.original) { image in
+                    image
+                        .resizable()
+                        .scaledToFill()
+                        .frame(maxWidth: .infinity)
+                } placeholder: {
+                    ProgressView()
+                        .progressViewStyle(.circular)
+                        .frame(maxWidth: .infinity)
+                }
+                
+                Text(schedule.show.summaryWithoutHTMLTags)
+                    .foregroundColor(Color.primaryLightGray)
+                    .lineLimit(5)
+                    .padding(.horizontal, 4)
+                    .multilineTextAlignment(.leading)
+                
+                HStack {
+                    Text("Cast")
                         .foregroundColor(Color.primaryLightGray)
-                        .padding(.horizontal, 4)
-                        .multilineTextAlignment(.leading)
+                        .font(.title3)
+                        .fontWeight(.bold)
                     
-                    HStack {
-                        Text("Cast")
-                            .foregroundColor(Color.primaryLightGray)
-                            .font(.title3)
-                            .fontWeight(.bold)
-                        
-                        Spacer()
-                        
-                        Button {
-                            // show all cast
-                        } label: {
-                            Text("show all")
-                                .foregroundColor(Color.primaryYellow)
-                                .font(.subheadline)
-                                .fontWeight(.medium)
+                    Spacer()
+                    
+                    Button {
+                        // show all cast
+                    } label: {
+                        Text("show all")
+                            .foregroundColor(Color.primaryYellow)
+                            .font(.subheadline)
+                            .fontWeight(.medium)
+                    }
+                }
+                .padding(.vertical, 5)
+                .padding(.horizontal, 10)
+                
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 5) {
+                        ForEach(cast.prefix(10), id: \.person?.id) { person in
+                            CastCardView(person: person)
                         }
                     }
-                    .padding(.vertical, 5)
-                    .padding(.horizontal, 10)
-                    
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(spacing: 5) {
-                            ForEach(cast.prefix(10), id: \.person?.id) { person in
-                                CastCardView(person: person)
-                            }
-                        }
-                    }
+                    .padding(.vertical, 10)
                 }
             }
         }
         .background(Color.primaryBlack)
+        .ignoresSafeArea()
     }
 }

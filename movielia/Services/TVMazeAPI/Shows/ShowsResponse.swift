@@ -10,7 +10,11 @@ import Foundation
 struct ShowsResponse: Identifiable, Codable {
     let id:      Int
     let name:    String
-    let summary: String
+    var summary: String
+    
+    var summaryWithoutHTMLTags: String {
+        return summary.removeHTMLTags()
+    }
     
     let image: Image
     struct Image: Codable {

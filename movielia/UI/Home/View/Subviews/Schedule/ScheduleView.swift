@@ -52,6 +52,7 @@ struct ScheduleView<T>: View {
             .padding(.horizontal)
             .task {
                 viewModel.fetchScheduleData()
+                viewModel.emptyCastArray()
             }
         }
     }
