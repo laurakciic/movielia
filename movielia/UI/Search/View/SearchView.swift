@@ -17,7 +17,7 @@ struct SearchView: View {
     
     var body: some View {
             ZStack {
-                Image("SearchTab")
+                Image("TabBackground")
                     .resizable()
                     .scaledToFill()
                     .frame(height: UIScreen.main.bounds.height)
