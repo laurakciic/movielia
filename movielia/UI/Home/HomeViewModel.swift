@@ -19,7 +19,7 @@ final class HomeViewModel<T>: ObservableObject {
     @Published var shows       = [ShowsResponse]()
     @Published var schedule    = [ScheduleResponse]()
     @Published var cast        = [CastResponse]()
-    @Published var isShowSaved = Bool()
+    @Published var isSaved     = Bool()
     
     init(showsService: ShowsServiceProtocol, scheduleService: ScheduleServiceProtocol, castService: CastServiceProtocol, persistanceService: PersistanceServiceProtocol) {
         self.showsService       = showsService
@@ -129,13 +129,13 @@ final class HomeViewModel<T>: ObservableObject {
         if isInFavoritesArray(show) {
             if let index = favoriteShows.firstIndex(where: { $0.id == show.id }) {
                 favoriteShows.remove(at: index)
-                isShowSaved = false
+                isSaved = false
             }
         } else {
             favoriteShows.insert(show, at: favoriteShows.endIndex)
-            isShowSaved = true
+            isSaved = true
         }
-        persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isShowSaved)
+        persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isSaved)
     }
     
     func markFavorite(_ showFromSchedule: ScheduleResponse) {
@@ -145,13 +145,13 @@ final class HomeViewModel<T>: ObservableObject {
         if isInFavoritesArray(show) {
             if let index = favoriteShows.firstIndex(where: { $0.id == show.id }) {
                 favoriteShows.remove(at: index)
-                isShowSaved = false
+                isSaved = false
             }
         } else {
             favoriteShows.insert(show, at: favoriteShows.endIndex)
-            isShowSaved = true
+            isSaved = true
         }
-        persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isShowSaved)
+        persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isSaved)
     }
     
     func persistChecked(_ iconChecked: Bool) {

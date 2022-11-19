@@ -7,23 +7,65 @@
 
 import SwiftUI
 
-struct ScheduleDetailsView: View {
+struct ScheduleDetailsView<T>: View {
     
+    @ObservedObject var viewModel: DetailsViewModel<T>
+    @Environment(\.dismiss) var dismiss
+
     var schedule: ScheduleResponse
     var cast: [CastResponse]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
-                AsyncImage(url: schedule.show.image?.original) { image in
-                    image
-                        .resizable()
-                        .scaledToFill()
-                        .frame(maxWidth: .infinity)
-                } placeholder: {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .frame(maxWidth: .infinity)
+                ZStack {
+                    AsyncImage(url: schedule.show.image?.original) { image in
+                        image
+                            .resizable()
+                            .scaledToFill()
+                            .frame(maxWidth: .infinity)
+                    } placeholder: {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .frame(maxWidth: .infinity)
+                    }
+                    
+                    VStack {
+                        Spacer()
+                            .frame(height: UIScreen.main.bounds.height / 12)
+                        
+                        HStack {
+                            Button {
+                                dismiss()
+                            } label: {
+                                Image(systemName: "chevron.left")
+                            }
+                            .font(.system(.headline))
+                            .font(.footnote.weight(.heavy))
+                            .foregroundColor(Color.primaryWhite)
+                            
+                            Spacer()
+                            
+                            ZStack {
+                                RoundedRectangle(cornerRadius: 10)
+                                    .strokeBorder(Color.primaryLightGray)
+                                    .background(RoundedRectangle(cornerRadius: 10).fill(Color.primaryBlack))
+                                    .frame(width: 40, height: 40)
+                                
+                                Button {
+                                    viewModel.markFavorite(schedule)
+                                    viewModel.persistChecked(viewModel.isSaved)
+                                } label: {
+                                    Image(systemName: "heart.fill")
+                                        .foregroundColor(viewModel.containsFavorite(schedule) ? Color.primaryYellow : Color.primaryLightGray)
+                                        .font(.title3)
+                                }
+                            }
+                        }
+                        
+                        Spacer()
+                    }
+                    .padding(.horizontal)
                 }
                 
                 Text(schedule.show.summaryWithoutHTMLTags)

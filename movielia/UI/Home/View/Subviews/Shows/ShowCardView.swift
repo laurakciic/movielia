@@ -49,7 +49,7 @@ struct ShowCardView: View {
                                 
                                 Button {
                                     viewModel.markFavorite(show)
-                                    viewModel.persistChecked(viewModel.isShowSaved)
+                                    viewModel.persistChecked(viewModel.isSaved)
                                 } label: {
                                     Image(systemName: "heart.fill")
                                         .foregroundColor(viewModel.containsFavorite(show) ? Color.primaryYellow : Color.primaryLightGray)

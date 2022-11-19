@@ -51,7 +51,7 @@ struct ScheduleCardView: View {
                                     
                                     Button {
                                         viewModel.markFavorite(schedule)
-                                        viewModel.persistChecked(viewModel.isShowSaved)
+                                        viewModel.persistChecked(viewModel.isSaved)
                                     } label: {
                                         Image(systemName: "heart.fill")
                                             .foregroundColor(viewModel.containsFavorite(schedule) ? Color.primaryYellow : Color.primaryLightGray)
