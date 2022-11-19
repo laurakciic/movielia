@@ -25,19 +25,26 @@ struct SearchView: View {
                 
                 VStack {
                     HStack {
+                        Image(systemName: "magnifyingglass")
+                            .foregroundColor(.gray)
+                        
                         TextField("Search shows", text: $viewModel.searchText)
-                            .padding(.horizontal, 40)
-                            .frame(height: 45, alignment: .leading)
-                            .background(Color(#colorLiteral(red: 0.9294475317, green: 0.9239223003, blue: 0.9336946607, alpha: 1)))
-                            .clipped()
-                            .cornerRadius(10)
-                            .overlay {
-                                Image(systemName: "magnifyingglass")
-                                    .foregroundColor(.gray)
-                                    .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
-                                    .padding(.leading, 16)
+                            .overlay(alignment: .trailing) {
+                                Image(systemName: "xmark.circle.fill")
+                                    .padding()
+                                    .offset(x: 10)
+                                    .foregroundColor(Color.primaryDarkGray)
+                                    .opacity(viewModel.searchText.isEmpty ? 0 : 1)
+                                    .onTapGesture {
+                                        viewModel.searchText = ""
+                                    }
                             }
                     }
+                    .padding()
+                    .background(
+                        RoundedRectangle(cornerRadius: 25)
+                            .fill(Color.primaryWhite)
+                    ).padding(10)
                     
                     if viewModel.searchedShows.count > 0 {
                         LazyVGrid(columns: layout, spacing: 12) {
@@ -46,7 +53,7 @@ struct SearchView: View {
                                     SearchShowCardView(searchedShow: show)
                                 }
                             }
-                            .frame(height: UIScreen.main.bounds.height / 1.3)
+                            .frame(height: UIScreen.main.bounds.height / 1.4)
                         }
                     } else {
                         Spacer()
