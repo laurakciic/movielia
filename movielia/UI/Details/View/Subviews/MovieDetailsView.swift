@@ -53,7 +53,7 @@ struct MovieDetailsView<T>: View {
                                     .frame(width: 40, height: 40)
                                 
                                 Button {
-                                    viewModel.markFavorite(show)
+                                    viewModel.toggleFavorite(show)
                                     viewModel.persistChecked(viewModel.isSaved)
                                 } label: {
                                     Image(systemName: "heart.fill")

@@ -53,7 +53,7 @@ struct ScheduleDetailsView<T>: View {
                                     .frame(width: 40, height: 40)
                                 
                                 Button {
-                                    viewModel.markFavorite(schedule)
+                                    viewModel.toggleFavorite(schedule)
                                     viewModel.persistChecked(viewModel.isSaved)
                                 } label: {
                                     Image(systemName: "heart.fill")

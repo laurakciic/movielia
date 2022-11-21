@@ -55,7 +55,7 @@ final class DetailsViewModel<T>: ObservableObject {
         return false
     }
     
-    func markFavorite(_ show: ShowsResponse) {
+    func toggleFavorite(_ show: ShowsResponse) {
         let show = persistanceService.favoriteData.favorite.createFavorite(from: show)
         var favoriteShows = persistanceService.favoriteData.favorites
         
@@ -71,7 +71,7 @@ final class DetailsViewModel<T>: ObservableObject {
         persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isSaved)
     }
     
-    func markFavorite(_ showFromSchedule: ScheduleResponse) {
+    func toggleFavorite(_ showFromSchedule: ScheduleResponse) {
         let show = persistanceService.favoriteData.favorite.createFavorite(from: showFromSchedule)
         var favoriteShows = persistanceService.favoriteData.favorites
         

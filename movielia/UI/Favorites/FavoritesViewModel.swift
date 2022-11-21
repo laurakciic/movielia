@@ -33,7 +33,22 @@ final class FavoritesViewModel: ObservableObject {
         return false
     }
     
-    func removeFavorite(_ show: FavoriteData.Show) {
+//    func removeFavorite(_ show: FavoriteData.Show) {
+//        var favorites = persistanceService.favoriteData.favorites
+//
+//        if isInFavoritesArray(show) {
+//            if let index = favorites.firstIndex(where: { $0.id == show.id }) {
+//                favorites.remove(at: index)
+//                isShowSaved = false
+//            }
+//        } else {
+//            favorites.insert(show, at: favorites.endIndex)
+//            isShowSaved = true
+//        }
+//        persistanceService.favoriteData = FavoriteData(favorites: favorites, favorite: show, iconChecked: isShowSaved)
+//    }
+    
+    func toggleFavorite(_ show: FavoriteData.Show) {
         var favorites = persistanceService.favoriteData.favorites
         
         if isInFavoritesArray(show) {
@@ -46,21 +61,6 @@ final class FavoritesViewModel: ObservableObject {
             isShowSaved = true
         }
         persistanceService.favoriteData = FavoriteData(favorites: favorites, favorite: show, iconChecked: isShowSaved)
-    }
-    
-    func markFavorite(_ show: FavoriteData.Show) {
-        var favoriteShows = persistanceService.favoriteData.favorites
-        
-        if isInFavoritesArray(show) {
-            if let index = favoriteShows.firstIndex(where: { $0.id == show.id }) {
-                favoriteShows.remove(at: index)
-                isShowSaved = false
-            }
-        } else {
-            favoriteShows.insert(show, at: favoriteShows.endIndex)
-            isShowSaved = true
-        }
-        persistanceService.favoriteData = FavoriteData(favorites: favoriteShows, favorite: show, iconChecked: isShowSaved)
     }
     
     func persistChecked(_ iconChecked: Bool) {

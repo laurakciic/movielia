@@ -34,7 +34,8 @@ struct FavoriteCardView: View {
                                 .frame(width: 35, height: 35)
                             
                             Button {
-                                viewModel.removeFavorite(favorite)
+//                                viewModel.removeFavorite(favorite)
+                                viewModel.toggleFavorite(favorite)
                                 viewModel.persistChecked(viewModel.isShowSaved)
                             } label: {
                                 Image(systemName: "heart.fill")

@@ -48,7 +48,7 @@ struct ShowCardView: View {
                                     .frame(width: 35, height: 35)
                                 
                                 Button {
-                                    viewModel.markFavorite(show)
+                                    viewModel.toggleFavorite(show)
                                     viewModel.persistChecked(viewModel.isSaved)
                                 } label: {
                                     Image(systemName: "heart.fill")
