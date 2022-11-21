@@ -11,9 +11,6 @@ import SwiftUI
 final class SearchCoordinator: Coordinator {
     
     var navigationController =  UINavigationController()
-//    init(navController: UINavigationController) {
-//        self.navigationController = navController
-//    }
     
     func start() -> UIViewController {
         return createSearchViewController()

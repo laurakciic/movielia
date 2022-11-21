@@ -33,7 +33,6 @@ final class HomeViewModel<T>: ObservableObject {
             guard let self = self else { return }
             
             self.showsService.fetchShows { result in
-                
                 DispatchQueue.main.async {
                     switch(result) {
                     case .success(let response):

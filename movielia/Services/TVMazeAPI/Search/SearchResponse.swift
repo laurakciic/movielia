@@ -21,14 +21,12 @@ struct SearchResponse: Codable {
         var yearPremiered: String {
             let index = premiered.index(premiered.startIndex, offsetBy: 4)
             let year = String(premiered[..<index])
-            
             return year
         }
         
         var yearEnded: String {
             let index = ended!.index(ended!.startIndex, offsetBy: 4)
             let year = String(ended![..<index])
-            
             return year
         }
     }

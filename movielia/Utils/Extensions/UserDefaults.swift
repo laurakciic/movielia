@@ -11,7 +11,6 @@ extension UserDefaults {
     
     func load<T: Codable>() -> T? where T: Decodable {                                 // dataType: T.Type
         guard let data = data(forKey: "\(T.self)") else { return nil }                 // self.object(forKey: "\(T.self)") as? Data
-
         return try? JSONDecoder().decode(T.self, from: data)
     }
 

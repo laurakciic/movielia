@@ -22,7 +22,7 @@ final class SearchViewModel: ObservableObject {
         
         $searchText
             // debounces the string publisher, such that it delays the process of sending request to remote server
-            .debounce(for: .milliseconds(800), scheduler: RunLoop.main)
+            .debounce(for: .milliseconds(300), scheduler: RunLoop.main)
             .removeDuplicates()
         
             // prevents sending numerous requests and sends nil if the count of the characters is less than 1
