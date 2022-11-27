@@ -27,7 +27,7 @@ struct FavoriteData: Codable {
         }
     }
     
-    mutating func isIconChecked(_ bool: Bool) -> Bool {
+    mutating func setIconState(_ bool: Bool) -> Bool {
         iconChecked = bool
         return iconChecked
     }

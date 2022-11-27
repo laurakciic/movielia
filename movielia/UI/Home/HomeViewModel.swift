@@ -154,7 +154,7 @@ final class HomeViewModel<T>: ObservableObject {
     }
     
     func persistChecked(_ iconChecked: Bool) {
-        let checked = persistanceService.favoriteData.isIconChecked(iconChecked)
+        let checked = persistanceService.favoriteData.setIconState(iconChecked)
         persistanceService.favoriteData.iconChecked = checked
     }
 }
