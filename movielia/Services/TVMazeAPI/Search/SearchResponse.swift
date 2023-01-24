@@ -8,15 +8,16 @@
 import Foundation
 
 struct SearchResponse: Codable {
-    let show: Shows
+    let show: Show?
     
-    struct Shows: Codable {
+    struct Show: Codable, Identifiable {
         let id:        Int
         let name:      String
         let genres:    [String]
         let premiered: String
         let ended:     String?
         let image:     Image?
+        let summary:   String?
         
         var yearPremiered: String {
             let index = premiered.index(premiered.startIndex, offsetBy: 4)
@@ -32,6 +33,7 @@ struct SearchResponse: Codable {
     }
 
     struct Image: Codable {
-        let medium: URL?
+        let medium:   URL?
+        let original: URL?
     }
 }

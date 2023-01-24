@@ -9,10 +9,12 @@ import SwiftUI
 
 struct FavoritesView: View {
         
-    @ObservedObject var viewModel: FavoritesViewModel
-    init(viewModel: FavoritesViewModel) {
-        self.viewModel = viewModel
-    }
+    @ObservedObject var viewModel: FavoritesViewModel<Any>
+//    init(viewModel: FavoritesViewModel<Any>) {
+//        self.viewModel = viewModel
+//    }
+    
+    var onGoToDetails: ((_ show: ShowsResponse, _ cast: [CastResponse]) -> Void)?
     
     let columns = [
         GridItem(.adaptive(minimum: 150))
@@ -42,7 +44,7 @@ struct FavoritesView: View {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 10) {
                     ForEach(viewModel.favoriteShows) { favorite in
-                        FavoriteCardView(favorite: favorite)
+                        FavoriteCardView(viewModel: viewModel, favorite: favorite)
                             .clipShape(RoundedRectangle(cornerRadius: 10))
                     }
                 }
@@ -59,6 +61,6 @@ struct FavoritesView: View {
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
-        FavoritesView(viewModel: .init(persistanceService: PersistanceService()))
+        FavoritesView(viewModel: .init(persistanceService: ServiceFactory.persistanceService, castService: ServiceFactory.castService, showsAPIResponse: ShowsResponse.defaultData))
     }
 }

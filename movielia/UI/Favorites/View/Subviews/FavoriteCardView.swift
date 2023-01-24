@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteCardView: View {
     
-    @ObservedObject var viewModel = FavoritesViewModel(persistanceService: ServiceFactory.persistanceService)
+    @ObservedObject var viewModel: FavoritesViewModel<Any>
     var favorite: FavoriteData.Show
     
     var body: some View {
@@ -23,6 +23,10 @@ struct FavoriteCardView: View {
                 } placeholder: {
                     ProgressView()
                         .progressViewStyle(.circular)
+                }
+                .onTapGesture {
+                    viewModel.fetchCastData(viewModel.fetchShowOnClick(favorite).id)
+                    viewModel.onGoToDetails?(viewModel.fetchShowOnClick(favorite), viewModel.cast)
                 }
                 
                 VStack {

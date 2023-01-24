@@ -17,13 +17,14 @@ struct FavoriteData: Codable {
     struct Show: Codable, Identifiable {
         let id:    Int
         let image: URL?
+        let summary: String
         
         func createFavorite(from showData: ShowsResponse) -> Show {
-            return Show(id: showData.id, image: showData.image.medium)
+            return Show(id: showData.id, image: showData.image.medium, summary: showData.summary)
         }
         
         func createFavorite(from scheduleData: ScheduleResponse) -> Show {
-            return Show(id: scheduleData.id, image: scheduleData.show.image?.medium)
+            return Show(id: scheduleData.id, image: scheduleData.show.image?.medium, summary: scheduleData.show.summary ?? "")
         }
     }
     
@@ -33,6 +34,6 @@ struct FavoriteData: Codable {
     }
     
     static var defaultFavoriteData: Self {
-        FavoriteData(favorites: [], favorite: Show(id: 0, image: nil), iconChecked: true)
+        FavoriteData(favorites: [], favorite: Show(id: 0, image: nil, summary: ""), iconChecked: true)
     }
 }

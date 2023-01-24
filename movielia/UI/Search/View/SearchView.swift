@@ -9,7 +9,10 @@ import SwiftUI
 
 struct SearchView: View {
     
-    @ObservedObject var viewModel = SearchViewModel(searchService: ServiceFactory.searchService)
+    @ObservedObject var viewModel: SearchViewModel<Any>
+//    init(viewModel: SearchViewModel<Any>) {
+//        self.viewModel = viewModel
+//    }
     
     let layout = [
         GridItem(.flexible())
@@ -49,8 +52,12 @@ struct SearchView: View {
                     if viewModel.searchedShows.count > 0 {
                         LazyVGrid(columns: layout, spacing: 12) {
                             ScrollView {
-                                ForEach(viewModel.searchedShows, id: \.show.id) { show in
+                                ForEach(viewModel.searchedShows, id: \.show?.id) { show in
                                     SearchShowCardView(searchedShow: show)
+                                        .onTapGesture {
+                                            viewModel.fetchCast(viewModel.fetchShowOnClick(show).id)
+                                            viewModel.onGoToDetails?(viewModel.fetchShowOnClick(show), viewModel.cast)
+                                        }
                                 }
                             }
                             .frame(height: UIScreen.main.bounds.height / 1.4)
@@ -66,8 +73,8 @@ struct SearchView: View {
     }
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView(viewModel: SearchViewModel(searchService: ServiceFactory.searchService))
-    }
-}
+//struct SearchView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        SearchView(viewModel: SearchViewModel(searchService: ServiceFactory.searchService), showsAPIResponse: ShowsResponse, castService: ServiceFactory.castService)
+//    }
+//}

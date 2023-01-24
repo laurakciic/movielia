@@ -157,7 +157,6 @@
 				D31E5AA628FD888400207A96 /* ServiceFactory.swift */,
 				D31E5AB128FD899200207A96 /* Data */,
 				D31E5AA528FD881600207A96 /* TVMazeAPI */,
-				D331D265291079B700DBF3F5 /* Persistance */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -216,6 +215,7 @@
 		D31E5AA528FD881600207A96 /* TVMazeAPI */ = {
 			isa = PBXGroup;
 			children = (
+				D331D265291079B700DBF3F5 /* Persistance */,
 				D3BE295A29099639002B1D5E /* Cast */,
 				D3DFD4292901A17B00F81A9F /* Shows */,
 				D331D247290C8D2600DBF3F5 /* Search */,
